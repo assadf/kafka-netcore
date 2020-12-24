@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyShop.API.Commands;
+using MyShop.API.Services;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 namespace MyShop.API.Controllers
@@ -8,6 +10,13 @@ namespace MyShop.API.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+        private const string topic = "kafka-sample";
+        private readonly IProducer _producer;
+
+        public OrdersController(IProducer producer)
+        {
+            _producer = producer;
+        }
         [HttpGet]
         public IActionResult Get()
         {
@@ -17,6 +26,9 @@ namespace MyShop.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody]CreateOrderCommand command)
         {
+            var message = JsonConvert.SerializeObject(command);
+            await _producer.PublishAsync(topic, message);
+
             return Accepted();
         }
     }

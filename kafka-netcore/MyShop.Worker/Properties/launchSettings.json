@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MyShop.Worker": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
