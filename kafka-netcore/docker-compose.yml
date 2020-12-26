@@ -12,3 +12,8 @@ services:
     build:
       context: .
       dockerfile: MyShop.Worker/Dockerfile
+
+networks:
+  default:
+    external:
+      name: kafka-broker_default
