@@ -1,9 +1,5 @@
 # kafka-netcore
 
-### Pull relevant Kafka Docker Images to local repository
-- `docker pull confluentinc/cp-server` (Kafka Broker) (https://hub.docker.com/r/confluentinc/cp-server)
-- `docker pull confluentinc/cp-zookeeper` (https://hub.docker.com/r/confluentinc/cp-zookeeper)
-
 ### Create docker network (called myshop)
 - `docker network create myshop` - this will be the docker network that kafka broker, zookeeper and all producers/consumers which need to communicate with kafka will run on.
 
