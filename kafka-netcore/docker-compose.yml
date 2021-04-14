@@ -13,7 +13,16 @@ services:
       context: .
       dockerfile: MyShop.Worker/Dockerfile
 
+#networks:
+#  default:
+#    external:
+#      name: conduktor_default
+
+#networks:
+#  default:
+#    external:
+#      name: my_kafka_network
+
 networks:
   default:
-    external:
-      name: kafka-broker_default
+      name: my_kafka_network

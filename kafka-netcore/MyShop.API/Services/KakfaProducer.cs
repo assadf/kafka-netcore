@@ -9,7 +9,10 @@ namespace MyShop.API.Services
         {
             var producerConfig = new ProducerConfig
             {
-                BootstrapServers = "broker:9092"
+                //BootstrapServers = "broker:9092"
+                BootstrapServers = "kafka1:19092"
+                //BootstrapServers = "localhost:9092"
+                //BootstrapServers = "host.docker.internal:9092"
             };
             using (var p = new ProducerBuilder<string, string>(producerConfig).Build())
             {

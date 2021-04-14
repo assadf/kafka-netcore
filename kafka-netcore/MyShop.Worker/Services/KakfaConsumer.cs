@@ -12,7 +12,7 @@ namespace MyShop.Worker.Services
             var consumerConfig = new ConsumerConfig
             {
                 GroupId = "test-consumer-group",
-                BootstrapServers = "broker:9092"
+                BootstrapServers = "kafka1:19092"
             };
 
             using (var cons = new ConsumerBuilder<Ignore, string>(consumerConfig).Build())
